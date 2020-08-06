@@ -91,7 +91,7 @@ img {
     position: absolute;
     display: block;
     background: #2196F3;    
-    width: 102%;
+    width: 100%;
     height: 4px;
     content: "";
     margin-left: auto;
@@ -201,6 +201,31 @@ img {
     border-radius: 4px;
 }
 
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+    padding: 0px 20px;
+    background-color: #fff;
+}
+
 /* Секции */
 
 /* Cекция "Особенности" */
@@ -225,11 +250,11 @@ img {
 }
 
 .features-img-background {
-    margin-bottom: 30px;
-    background-color: #F5F4FA;
     position: relative;
+    margin-bottom: 30px;
     width: 270px;
     height: 120px;
+    background-color: #F5F4FA;
 }
 
 .features-img {
@@ -410,6 +435,8 @@ img {
 }
 
 /* Для текста в "Чем мы занимаемся" */
+
+
 
 /* Подвал */
 
@@ -602,15 +629,20 @@ img {
     flex-wrap: wrap;
 }
 
+/*  карточки услуг */
+
 .list-item {
     background: #FFFFFF;
     margin-right: 30px;
     margin-bottom: 30px;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .list-item:nth-child(3n) {
     margin-right: 0;
+}
+
+.list-item:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .main-list-item {
@@ -618,6 +650,7 @@ img {
 }
 
 .main-list-header {
+    margin-bottom: 5px;
     font-weight: bold;
     font-size: 18px;
     line-height: 2.00;
@@ -626,6 +659,7 @@ img {
 }
 
 .main-list-description {
+    margin-bottom: 20px;
     font-weight: normal;
     font-size: 16px;
     line-height: 1.87;
@@ -634,5 +668,42 @@ img {
 }
 
 .item-img {
+    position: relative;
     margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.item-image {
+    position: relative;
+}
+
+.image-hover-effect {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item-img:hover .image-hover-effect {
+    transform: translateY(-100%);
+}
+
+.main-list-hover {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 0px 24px;
+    width: 346px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    opacity: 1;
 }
